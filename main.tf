@@ -23,3 +23,7 @@ resource "aws_subnet" "public" {
 
   map_public_ip_on_launch = false
 }
+
+output "subnet_ids" {
+  value = "${join(",", aws_subnet.public.*.id)}"
+}
